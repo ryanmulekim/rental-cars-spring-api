@@ -4,214 +4,45 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet id="insert-data" author="name">
-        <!-- Insert data into carro table -->
+    <!-- Inserindo dados na tabela 'carro' -->
+    <changeSet id="inserir-dados-carro" author="name">
         <insert tableName="carro">
-            <column name="modelo" value="GOL"/>
+            <column name="id" value="1"/>
+            <column name="modelo" value="Gol"/>
             <column name="ano" value="2020"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="154748"/>
+            <column name="qtd_passageiros" value="5"/>
+            <column name="km" value="20000"/>
             <column name="fabricante" value="Volkswagen"/>
-            <column name="vlr_diaria" valueNumeric="185.00"/>
+            <column name="vlr_diaria" value="150.00"/>
         </insert>
         <insert tableName="carro">
-            <column name="modelo" value="GOL"/>
-            <column name="ano" value="2022"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="87554"/>
-            <column name="fabricante" value="Volkswagen"/>
-            <column name="vlr_diaria" valueNumeric="199.85"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="POLO"/>
-            <column name="ano" value="2019"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="225426"/>
-            <column name="fabricante" value="Volkswagen"/>
-            <column name="vlr_diaria" valueNumeric="225.00"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="VITRUS"/>
-            <column name="ano" value="2023"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="24551"/>
-            <column name="fabricante" value="Volkswagen"/>
-            <column name="vlr_diaria" valueNumeric="244.87"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="JETTA"/>
-            <column name="ano" value="2024"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="0"/>
-            <column name="fabricante" value="Volkswagen"/>
-            <column name="vlr_diaria" valueNumeric="298.89"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="COROLLA"/>
-            <column name="ano" value="2020"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="387449"/>
-            <column name="fabricante" value="Toyota"/>
-            <column name="vlr_diaria" valueNumeric="252.27"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="RAV4"/>
-            <column name="ano" value="2023"/>
-            <column name="qtd_passageiros" valueNumeric="7"/>
-            <column name="km" valueNumeric="198966"/>
-            <column name="fabricante" value="Toyota"/>
-            <column name="vlr_diaria" valueNumeric="342.50"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="FOCUS"/>
-            <column name="ano" value="2018"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="301302"/>
-            <column name="fabricante" value="Ford"/>
-            <column name="vlr_diaria" valueNumeric="300.00"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="UNO"/>
-            <column name="ano" value="2022"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="445580"/>
-            <column name="fabricante" value="Fiat"/>
-            <column name="vlr_diaria" valueNumeric="150.00"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="MOBI"/>
+            <column name="id" value="2"/>
+            <column name="modelo" value="Onix"/>
             <column name="ano" value="2021"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="388750"/>
-            <column name="fabricante" value="Fiat"/>
-            <column name="vlr_diaria" valueNumeric="177.90"/>
-        </insert>
-        <insert tableName="carro">
-            <column name="modelo" value="ARGO"/>
-            <column name="ano" value="2023"/>
-            <column name="qtd_passageiros" valueNumeric="5"/>
-            <column name="km" valueNumeric="268498"/>
-            <column name="fabricante" value="Fiat"/>
-            <column name="vlr_diaria" valueNumeric="199.99"/>
-        </insert>
-
-        <!-- Insert data into cliente table -->
-        <insert tableName="cliente">
-            <column name="nome" value="Lucas Joaquim Almada"/>
-            <column name="cpf" value="43374922759"/>
-            <column name="cnh" value="29677677708"/>
-            <column name="telefone" value="65991842240"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Carlos Eduardo Anthony Isaac de Paula"/>
-            <column name="cpf" value="83413989073"/>
-            <column name="cnh" value="01981669301"/>
-            <column name="telefone" value="44992220053"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Priscila Márcia Sebastiana Costa"/>
-            <column name="cpf" value="06154891091"/>
-            <column name="cnh" value="13079541770"/>
-            <column name="telefone" value="49997839265"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Luciana Isis Maitê Ferreira"/>
-            <column name="cpf" value="85234015041"/>
-            <column name="cnh" value="97655795804"/>
-            <column name="telefone" value="14994676214"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Pedro Henrique Thales Lopes"/>
-            <column name="cpf" value="09878066029"/>
-            <column name="cnh" value="17851584547"/>
-            <column name="telefone" value="67981141924"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Ricardo Mateus Ribeiro"/>
-            <column name="cpf" value="58783795030"/>
-            <column name="cnh" value="04708033928"/>
-            <column name="telefone" value="61994669121"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Alícia Fabiana Pires"/>
-            <column name="cpf" value="39198924028"/>
-            <column name="cnh" value="38882828503"/>
-            <column name="telefone" value="63987092349"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Bryan Thales Erick Moura"/>
-            <column name="cpf" value="37886426029"/>
-            <column name="cnh" value="82393099363"/>
-            <column name="telefone" value="79999244913"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Geraldo Henry Bernardo da Conceição"/>
-            <column name="cpf" value="40168500027"/>
-            <column name="cnh" value="82393909363"/>
-            <column name="telefone" value="51986656408"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Teresinha Nair Campos"/>
-            <column name="cpf" value="19797478068"/>
-            <column name="cnh" value="39388472407"/>
-            <column name="telefone" value="49992792615"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Marcos Vinicius Erick Henry Peixoto"/>
-            <column name="cpf" value="90883468018"/>
-            <column name="cnh" value="16344178208"/>
-            <column name="telefone" value="79989157613"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Carla Sabrina Melissa Fogaça"/>
-            <column name="cpf" value="48948467050"/>
-            <column name="cnh" value="65468577774"/>
-            <column name="telefone" value="68987657032"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Sebastião Martin Teixeira"/>
-            <column name="cpf" value="09045710099"/>
-            <column name="cnh" value="16100326509"/>
-            <column name="telefone" value="69984198300"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Tiago Vinicius Gomes"/>
-            <column name="cpf" value="92804928020"/>
-            <column name="cnh" value="74619860950"/>
-            <column name="telefone" value="31991953336"/>
-        </insert>
-        <insert tableName="cliente">
-            <column name="nome" value="Luiz Thomas Peixoto"/>
-            <column name="cpf" value="19519417052"/>
-            <column name="cnh" value="36938544931"/>
-            <column name="telefone" value="48984907165"/>
-        </insert>
-
-        <!-- Insert data into ALUGUEL table -->
-        <insert tableName="aluguel">
-            <column name="carro_id" valueNumeric="2"/>
-            <column name="cliente_id" valueNumeric="4"/>
-            <column name="data_aluguel" valueDate="2022-01-10"/>
-            <column name="data_devolucao" valueDate="2022-01-12"/>
-            <column name="valor" valueNumeric="399.70"/>
-            <column name="pago" valueBoolean="true"/>
-        </insert>
-        <insert tableName="aluguel">
-            <column name="carro_id" valueNumeric="7"/>
-            <column name="cliente_id" valueNumeric="15"/>
-            <column name="data_aluguel" valueDate="2022-12-29"/>
-            <column name="data_devolucao" valueDate="2023-01-06"/>
-            <column name="valor" valueNumeric="2740.00"/>
-            <column name="pago" valueBoolean="true"/>
-        </insert>
-        <insert tableName="aluguel">
-            <column name="carro_id" valueNumeric="9"/>
-            <column name="cliente_id" valueNumeric="9"/>
-            <column name="data_aluguel" valueDate="2023-01-02"/>
-            <column name="data_devolucao" valueDate="2023-01-04"/>
-            <column name="valor" valueNumeric="300.00"/>
-            <column name="pago" valueBoolean="false"/>
+            <column name="qtd_passageiros" value="5"/>
+            <column name="km" value="15000"/>
+            <column name="fabricante" value="Chevrolet"/>
+            <column name="vlr_diaria" value="200.00"/>
         </insert>
     </changeSet>
+
+    <!-- Inserindo dados na tabela 'cliente' -->
+    <changeSet id="inserir-dados-cliente" author="name">
+        <insert tableName="cliente">
+            <column name="id" value="1"/>
+            <column name="nome" value="Carlos Silva"/>
+            <column name="cpf" value="12345678901"/>
+            <column name="cnh" value="98765432101"/>
+            <column name="telefone" value="11987654321"/>
+        </insert>
+        <insert tableName="cliente">
+            <column name="id" value="2"/>
+            <column name="nome" value="Maria Oliveira"/>
+            <column name="cpf" value="09876543210"/>
+            <column name="cnh" value="12345098765"/>
+            <column name="telefone" value="21987654321"/>
+        </insert>
+    </changeSet>
+
 
 </databaseChangeLog>

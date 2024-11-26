@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "carro")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Carro implements Serializable {

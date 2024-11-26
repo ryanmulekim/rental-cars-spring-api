@@ -8,4 +8,5 @@
 
     <include file="changelogs/criacao_database.xml" relativeToChangelogFile="true" />
     <include file="changelogs/popula_database.xml" relativeToChangelogFile="true" />
+
 </databaseChangeLog>

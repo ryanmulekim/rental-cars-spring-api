@@ -4,18 +4,89 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+    <!-- Criação da tabela 'carro' -->
     <changeSet id="criar-tabela-carro" author="name">
         <createTable tableName="carro">
-            <column name="id" type="int8" autoIncrement="true">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="pk_carro"/>
             </column>
-            <column name="modelo" type="varchar(50)"/>
-            <column name="ano" type="varchar(4)"/>
-            <column name="qtd_passageiros" type="int8"/>
-            <column name="km" type="int8"/>
-            <column name="fabricante" type="varchar(50)"/>
-            <column name="vlr_diaria" type="decimal(7,2)"/>
+            <column name="modelo" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ano" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qtd_passageiros" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="km" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fabricante" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vlr_diaria" type="DECIMAL(7,2)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
+
+    <!-- Criação da tabela 'cliente' -->
+    <changeSet id="criar-tabela-cliente" author="name">
+        <createTable tableName="cliente">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_cliente"/>
+            </column>
+            <column name="nome" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpf" type="VARCHAR(11)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uq_cliente_cpf"/>
+            </column>
+            <column name="cnh" type="VARCHAR(11)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uq_cliente_cnh"/>
+            </column>
+            <column name="telefone" type="VARCHAR(13)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Criação da tabela 'aluguel' -->
+    <changeSet id="criar-tabela-aluguel" author="name">
+        <createTable tableName="aluguel">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_aluguel"/>
+            </column>
+            <column name="carro_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_aluguel_carro" references="carro(id)"/>
+            </column>
+            <column name="cliente_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_aluguel_cliente" references="cliente(id)"/>
+            </column>
+            <column name="data_aluguel" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_devolucao" type="DATE"/>
+            <column name="valor" type="DECIMAL(7,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pago" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="criar-sequence-aluguel" author="name">
+        <createSequence sequenceName="aluguel_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+    <changeSet id="sincronizar-sequence-aluguel" author="name">
+        <sql>
+            ALTER SEQUENCE aluguel_seq RESTART WITH (SELECT COALESCE(MAX(id), 0) + 1 FROM aluguel);
+        </sql>
+    </changeSet>
+
+
 
 </databaseChangeLog>
